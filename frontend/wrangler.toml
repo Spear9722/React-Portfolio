@@ -1,0 +1,9 @@
+name = "sean-pearce-portfolio"
+
+compatibility_date = "2026-07-17"
+
+main = "worker.ts"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
