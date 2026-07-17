@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Card,
+  CardActionArea,
   CardContent,
   Chip,
   Container,
@@ -81,88 +82,154 @@ export default function GameLab(): React.ReactElement {
                 }}
               >
 
-                <CardContent
-                  sx={{
-                    p: 3,
-                  }}
-                >
+                {project.link ? (
+                  <CardActionArea
+                    component="a"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
 
-                  {/* Category */}
-                  <Typography
-                    variant="caption"
+                    <CardContent
+                      sx={{
+                        p: 3,
+                      }}
+                    >
+
+                      {/* Category */}
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: "secondary.main",
+                          letterSpacing: "1px",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {project.tag}
+                      </Typography>
+
+
+                      {/* Title */}
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontSize: 16,
+                          color: "text.primary",
+                          mt: 0.5,
+                          mb: 1,
+                        }}
+                      >
+                        {project.title}
+                      </Typography>
+
+
+                      {/* Description */}
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: 13.5,
+                          mb: 1.5,
+                        }}
+                      >
+                        {project.description}
+                      </Typography>
+
+
+                      {/* Tech Stack */}
+                      <Stack
+                        direction="row"
+                        flexWrap="wrap"
+                        useFlexGap
+                        spacing={1}
+                      >
+                        {project.tools.map(
+                          (tool) => (
+                            <Chip
+                              key={tool}
+                              label={tool}
+                              size="small"
+                              variant="outlined"
+                              sx={{
+                                borderColor: "divider",
+                                color: "text.secondary",
+                              }}
+                            />
+                          )
+                        )}
+                      </Stack>
+
+                    </CardContent>
+
+                  </CardActionArea>
+                ) : (
+
+                  <CardContent
                     sx={{
-                      color:
-                        "secondary.main",
-
-                      letterSpacing:
-                        "1px",
-
-                      textTransform:
-                        "uppercase",
+                      p: 3,
                     }}
                   >
-                    {project.tag}
-                  </Typography>
+
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "secondary.main",
+                        letterSpacing: "1px",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {project.tag}
+                    </Typography>
 
 
-                  {/* Title */}
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontSize: 16,
-
-                      color:
-                        "text.primary",
-
-                      mt: 0.5,
-
-                      mb: 1,
-                    }}
-                  >
-                    {project.title}
-                  </Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontSize: 16,
+                        color: "text.primary",
+                        mt: 0.5,
+                        mb: 1,
+                      }}
+                    >
+                      {project.title}
+                    </Typography>
 
 
-                  {/* Description */}
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: 13.5,
-
-                      mb: 1.5,
-                    }}
-                  >
-                    {project.description}
-                  </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: 13.5,
+                        mb: 1.5,
+                      }}
+                    >
+                      {project.description}
+                    </Typography>
 
 
-                  {/* Tech Stack */}
-                  <Stack
-                    direction="row"
-                    flexWrap="wrap"
-                    useFlexGap
-                    spacing={1}
-                  >
-                    {project.tools.map(
-                      (tool) => (
-                        <Chip
-                          key={tool}
-                          label={tool}
-                          size="small"
-                          variant="outlined"
-                          sx={{
-                            borderColor:
-                              "divider",
+                    <Stack
+                      direction="row"
+                      flexWrap="wrap"
+                      useFlexGap
+                      spacing={1}
+                    >
+                      {project.tools.map(
+                        (tool) => (
+                          <Chip
+                            key={tool}
+                            label={tool}
+                            size="small"
+                            variant="outlined"
+                            sx={{
+                              borderColor: "divider",
+                              color: "text.secondary",
+                            }}
+                          />
+                        )
+                      )}
+                    </Stack>
 
-                            color:
-                              "text.secondary",
-                          }}
-                        />
-                      )
-                    )}
-                  </Stack>
+                  </CardContent>
 
-                </CardContent>
+                )}
 
               </Card>
 

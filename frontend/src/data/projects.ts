@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   description: string;
   tools: string[];
+  link?: string;
 }
 
 export const projects: Project[] = [
@@ -16,41 +17,6 @@ export const projects: Project[] = [
       "Unity",
       "Q-Learning",
     ],
-  },
-
-  {
-    tag: "Engine Experiments",
-    title: "Unity & Unreal side projects",
-    description:
-      "Ongoing personal projects across both engines, using C++ in Unreal and C# in Unity to prototype mechanics, tooling, and AI-driven behavior outside of a production pipeline.",
-    tools: [
-      "C++",
-      "C#",
-      "Unreal Engine",
-      "Unity",
-    ],
-  },
-
-  {
-    tag: "Computer Graphics",
-    title: "3D World",
-    description:
-      "A computer-graphics project exploring 3D rendering fundamentals — geometry, lighting, and scene composition built from first principles in C++.",
-    tools: [
-      "C++",
-      "OpenGL",
-      "Computer Graphics",
-    ],
-  },
-
-  {
-    tag: "Mobile",
-    title: "AnimeDecider",
-    description:
-      "An Android app built in Android Studio to help users pick what to watch next — a smaller-scope project for practicing mobile development end to end.",
-    tools: [
-      "Android Studio",
-      "Android Development",
-    ],
+    link: "https://github.com/yourusername/q-learning-agent",
   },
 ];
